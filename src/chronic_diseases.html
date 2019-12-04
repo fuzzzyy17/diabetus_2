@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Dashboard Template for Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Diabetus</a>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-feather="home"></span>
+                  Dashboard <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file"></span>
+                  Orders
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="shopping-cart"></span>
+                  Products
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="users"></span>
+                  Customers
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="bar-chart-2"></span>
+                  Reports
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="layers"></span>
+                  Integrations
+                </a>
+              </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Saved reports</span>
+              <a class="d-flex align-items-center text-muted" href="#">
+                <span data-feather="plus-circle"></span>
+              </a>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Current month
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Last quarter
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Social engagement
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  Year-end sale
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2">Compare between chronic diseases and how they affect diabetes</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
+              </div>
+              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <span data-feather="calendar"></span>
+                2014
+              </button>
+            </div>
+          </div>
+          <div class="row">
+          <canvas class="col-md-9" id="myChart" width="900" height="380"></canvas>
+          
+          <div id="chronic" class="col-md">
+              <br/><br/><br/><br/>
+              <input type="radio" name="axis" id="bloodPressure" onclick="updateChart(this)" checked="true">Blood Pressure<br>
+              <input type="radio" name="axis" id="physicalActivity" onclick="updateChart(this)">Physical Activity<br>
+              <input type="radio" name="axis" id="tobacco" onclick="updateChart(this)">Tobacco<br>
+              <br/><br/>
+              <button>Upload More</button>
+          </div>
+          </div>
+          <div id="this" class="col-md">Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. 
+          Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. 
+          Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. 
+          Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. 
+          </div>
+          
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+
+    <!-- Graphs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+    <script> 
+      Promise.all([
+        d3.csv('csv/population_mortality_data/2010.csv'),
+        d3.csv('csv/population_blood_glucose_levels/2010.csv'),
+        <!-->d3.csv('csv.population_blood_pressure/2010.csv'),
+      ]).then(function(data) {
+        var ctx = document.getElementById("myChart")
+        var countryObj = (data[0]).map(function(d) {return d.Country})
+        const countryLabels = Object.keys(countryObj).map(i => countryObj[i])
+        var deaths = (data[0]).map(function(e) {return e.Deathsper100k})
+        var glucoseLevels = (data[1]).map(function(f) {return f.Both})
+        let coords = glucoseLevels.map((v, i) => ({x: v, y: deaths[i]}))
+        <!-->var pressureLevels = (data[2]).map(function(g)) {return g.both}
+        <!-->let 
+        
+        var pressure = document.getElementById("bloodPressure").checked;
+        
+        var mixedChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    label: 'Bar Dataset',
+                    data: [5.5,5.6,5.6,5.6,5.6,5.7,5.7,5.7,5.7,5.7,5.8]
+                }, {
+                    label: 'Line Dataset',
+                    data: [21.3, 20.7, 20.1, 19.5, 19.0, 18.4, 17.8, 17.3, 16.7, 16.2, 15.7],
+
+                    // Changes this dataset to become a line
+                    type: 'line'
+                }],
+                labels: ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014']
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: "Countries"
+                        },
+                        type: 'linear',
+                        position: 'bottom'
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: "Something"
+                        },
+                        type: 'linear',
+                        position: 'bottom'
+                    }
+                }
+            }
+        }).catch(function(err) {
+            window.alert(err.message)
+        });
+        
+        var myChart = new Chart(ctx, {
+          type: "scatter",
+          data: {
+            labels: countryLabels,
+            datasets: [{
+              label: 'country',
+              data: coords
+            }]
+          },
+          options: {
+            tooltips: {
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var label = data.labels[tooltipItem.index];
+                return label + ': (' + tooltipItem.xLabel + ', ' + tooltipItem.yLabel + ')';
+                }
+              }
+            },
+            scales: {
+              xAxes: [{
+                scaleLabel: {
+                  display: true,
+                  labelString: "Raised fasting blood glucose (≥ 7.0 mmol/L or on medication)(age-standardized)"
+                },
+                type: 'linear',
+                position: 'bottom'
+              }],
+              yAxes: [{
+                scaleLabel: {
+                  display: true,
+                  labelString: "Deaths per 100k"
+                },
+                type: 'linear',
+                position: 'bottom'
+              }]
+            }
+          }
+        })
+      }).catch(function(err) {
+        window.alert(err.message)
+      });
+    </script>
+    <script>
+        function updateChart(element) {
+            if (element.id == "bloodPressure") {
+                
+            }
+            else if (element.id == "physicalActivity") {
+                
+            }
+            else {
+                
+            }
+            
+        }
+    </script>
+  </body>
+</html>
