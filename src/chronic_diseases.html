@@ -128,10 +128,14 @@
               <button>Upload More</button>
           </div>
           </div>
-          <div id="this" class="col-md">Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. 
-          Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. 
-          Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. 
-          Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. 
+          <div id="this" class="col-md"><h2>Diabetes and high blood pressure</h2> 
+"About 25% of people with Type 1 diabetes and 80% of people with Type 2 diabetes have high blood pressure.
+
+Having diabetes raises your risk of heart disease, stroke, kidney disease and other health problems. Having high blood pressure also raises this risk. If you have diabetes and high blood pressure together, this raises your risk of health problems even more.
+
+If you have diabetes, your doctor will want to be sure that your blood pressure is very well controlled. This means that they will probably want your blood pressure to be below 130 over 80.
+
+People with diabetes and high blood pressure are sometimes given the blood pressure medicines known as ACE inhibitors or angiotensin receptor blockers, because they are thought to help protect the kidneys. However, other blood pressure medicines can also be used." (from <a href="http://bloodpressureuk.org">Blood Pressure UK</a>)
           </div>
           
         </main>
@@ -174,21 +178,28 @@
         
         var myChart = new Chart(ctx, {
           type: "line",
+          
           data: {
             //labels: countryLabels,
             datasets: [{
-              label: 'Blood Glucose',
+              /*label: 'Blood Glucose',
               yAxisID: 'B',
-              data: [5.5,5.6,5.6,5.6,5.6,5.7,5.7,5.7,5.7,5.7,5.8],  //uk
-            }, {
+              data: [5.5,5.6,5.6,5.6,5.6,5.7,5.7,5.7,5.7,5.7,5.8],  //uk*/
+              label: 'Diabetes Deaths',
+              yAxisID: 'B',
+              data:[6628,,,,,,,,,,,,,,,6553],
+              spanGaps:"true",
+                
+          }, {
               label: 'Blood Pressure',
               yAxisID: 'A',
-              data: [21.3, 20.7, 20.1, 19.5, 19.0, 18.4, 17.8, 17.3, 16.7, 16.2, 15.7],
+              data: [,,,,15.7,16.2,16.7,17.3,17.8,18.4,19.0,19.5,20.1,20.7,21.3,,],
+              //[21.3, 20.7, 20.1, 19.5, 19.0, 18.4, 17.8, 17.3, 16.7, 16.2, 15.7]
               type: "line",
               borderColor: '#007bff',
               fill: 'false'
             }],
-            labels: ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014'],
+            labels: ['2000', '2001', '2002','2003','2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014','2015','2016'],
           },
         options: {
           tooltips: {enabled: false},
@@ -197,13 +208,13 @@
               id: 'B',
               scaleLabel: {
                 display: true,
-                labelString: "Raised fasting blood glucose (≥ 7.0 mmol/L or on medication)(age-standardized)",
+                labelString: "Number of deaths related to Diabetes Mellitus (Both Sexes, UK)",
               },
               type: 'linear',
               position: 'left',
               ticks: {
-                max: 6.1,
-                min: 5.4
+                max: 6800,
+                min: 6450
               }
             }, {
               id: 'A',
