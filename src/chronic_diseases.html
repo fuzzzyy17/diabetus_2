@@ -104,7 +104,7 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Other Risk Factors and their Relationship to Diabetes</h1>
+            <h1 class="h2">Other Risk Factors and Their Relationship to Diabetes</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
                 <button class="btn btn-sm btn-outline-secondary">Share</button>
@@ -122,13 +122,13 @@
           <div id="chronic" class="col-md">
               <br/><br/><br/><br/>
               <input type="radio" name="axis" id="bloodPressure" onclick="updateChart(this)" checked="true">Blood Pressure<br>
-              <input type="radio" name="axis" id="alcohol" onclick="window.location='/src/chronic_diseases_2.html'">Alcohol Consumption<br>
-              <input type="radio" name="axis" id="tobacco" onclick="updateChart(this)">Tobacco<br>
+              <input type="radio" name="axis" id="overweight" onclick="window.location='/src/chronic_diseases_2.html'">Overweight <br>
+              <!--<input type="radio" name="axis" id="tobacco" onclick="updateChart(this)">Tobacco--><br>
               <br/><br/>
               <button>Upload More</button>
           </div>
           </div>
-          <div id="this" class="col-md"><h2>Diabetes and high blood pressure</h2> 
+          <div id="this" class="col-md"><h2>Diabetes and High Blood Pressure</h2> 
 "About 25% of people with Type 1 diabetes and 80% of people with Type 2 diabetes have high blood pressure.
 
 Having diabetes raises your risk of heart disease, stroke, kidney disease and other health problems. Having high blood pressure also raises this risk. If you have diabetes and high blood pressure together, this raises your risk of health problems even more.
@@ -187,19 +187,18 @@ People with diabetes and high blood pressure are sometimes given the blood press
               data: [5.5,5.6,5.6,5.6,5.6,5.7,5.7,5.7,5.7,5.7,5.8],  //uk*/
               label: 'Diabetes Deaths',
               yAxisID: 'B',
-              data:[6628,,,,,,,,,,,,,,,6553],
+              data:[6310,,,,,6720],
               spanGaps:"true",
                 
           }, {
               label: 'Blood Pressure',
               yAxisID: 'A',
-              data: [,,,,15.7,16.2,16.7,17.3,17.8,18.4,19.0,19.5,20.1,20.7,21.3,,],
-              //[21.3, 20.7, 20.1, 19.5, 19.0, 18.4, 17.8, 17.3, 16.7, 16.2, 15.7]
+              data: [17.8,18.4,19.0,19.5,20.1,20.7,21.3],
               type: "line",
               borderColor: '#007bff',
               fill: 'false'
             }],
-            labels: ['2000', '2001', '2002','2003','2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014','2015','2016'],
+            labels: ['2010', '2011', '2012', '2013', '2014','2015'],
           },
         options: {
           tooltips: {enabled: false},
@@ -214,7 +213,7 @@ People with diabetes and high blood pressure are sometimes given the blood press
               position: 'left',
               ticks: {
                 max: 6800,
-                min: 6450
+                min: 6100
               }
             }, {
               id: 'A',

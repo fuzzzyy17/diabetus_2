@@ -104,7 +104,7 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Other Risk Factors and their Relationship to Diabetes</h1>
+            <h1 class="h2">Other Risk Factors and Their Relationship to Diabetes</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
                 <button class="btn btn-sm btn-outline-secondary">Share</button>
@@ -122,16 +122,18 @@
           <div id="chronic" class="col-md">
               <br/><br/><br/><br/>
               <input type="radio" name="axis" id="bloodPressure" onclick="window.location='/src/chronic_diseases.html'">Blood Pressure<br>
-              <input type="radio" name="axis" id="alcohol" onclick="updateChart(this)" checked="true">Alcohol Consumption<br>
-              <input type="radio" name="axis" id="tobacco" onclick="updateChart(this)">Tobacco<br>
+              <input type="radio" name="axis" id="overweight" onclick="updateChart(this)" checked="true">Overweight<br>
+              <!--<input type="radio" name="axis" id="tobacco" onclick="updateChart(this)">Tobacco--><br>
               <br/><br/>
               <button>Upload More</button>
           </div>
           </div>
-          <div id="this" class="col-md">Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. 
-          Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. 
-          Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. 
-          Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. Lots of text goes here. 
+          <div id="this" class="col-md"><h2>Diabetes and Being Overweight</h2> 
+"When an individual predisposed to diabetes has excess weight, the cells in the body become less sensitive to the insulin that is released from the pancreas. There is some evidence that fat cells are more resistant to insulin than muscle cells. Individuals affected by type 2 diabetes, who exercise, appear to reduce the severity of insulin-resistance because the exercising muscles use the extra sugar found in the blood; therefore, the body does not secrete insulin and the sugar is no longer diverted to excess fat cells.
+
+It’s not just how much an individual weighs, but also where they carry the weight that puts them at greater risk for health problems. Individuals carrying more weight around their waist (apple-shaped) are more likely to suffer from obesity-related conditions than someone who carries more weight in their hips and thighs (pear-shaped).
+
+Individuals affected by excess weight, particularly obesity and severe obesity, are more likely to develop type 2 diabetes as a related condition of their excess weight. Obesity and severe obesity greatly increase your risk of having heart disease, type 2 diabetes, certain types of cancer, sleep apnea, osteoarthritis and much more." (from <a href="http://obesityaction.org">Obesity Action</a>)
           </div>
           
         </main>
@@ -177,18 +179,19 @@
           data: {
             //labels: countryLabels,
             datasets: [{
-              label: 'Blood Glucose',
+              label: 'Diabetes Deaths',
               yAxisID: 'B',
-              data: [5.5,5.6,5.6,5.6,5.6,5.7,5.7,5.7,5.7,5.7,5.8],               //uk
+              data: [6310,,,,,6720],               //uk
+              spanGaps: "true",
             }, {
-              label: 'Alcohol Consumption',
+              label: 'Overweight',
               yAxisID: 'A',
-              data: [11.5, 11.37, 10.96, 11.14, 10.78, 10.14, 10.22, 10.02, 9.76, 9.65, 9.69],
+              data: [60.6,61.1,61.7,62.2,62.7,63.2],
               type: "line",
-              borderColor: '#007bff',
+              borderColor: 'red',
               fill: 'false'
             }],
-            labels: ['2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014'],
+            labels: ['2010', '2011', '2012', '2013', '2014', '2015'],
           },
         options: {
           tooltips: {enabled: false},
@@ -197,25 +200,25 @@
               id: 'B',
               scaleLabel: {
                 display: true,
-                labelString: "Raised fasting blood glucose (≥ 7.0 mmol/L or on medication)(age-standardized)",
+                labelString: "Number of deaths related to Diabetes Mellitus (Both Sexes, UK)",
               },
               type: 'linear',
               position: 'left',
               ticks: {
-                max: 5.9,
-                min: 5.3
+                max: 6800,
+                min: 6200
               }
             }, {
               id: 'A',
               scaleLabel: {
                 display: true,
-                labelString: "Alcohol recorded per capita (15+) consumption (in litres of pure alcohol)"
+                labelString: "Prevalence of overweigh among adults, BMI >= 25 (age-standardized estimate)(%)"
               },
               type: 'linear',
               position: 'right',
               ticks: {
-                max: 12,
-                min: 9
+                max: 66,
+                min: 60
               }
             }]
           }
