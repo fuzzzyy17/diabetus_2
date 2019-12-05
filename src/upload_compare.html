@@ -35,8 +35,8 @@
                     Home <span class="sr-only">(current)</span>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <!-- <a class="nav-link" href="upload_compare.html">
+                <!-- <li class="nav-item">
+                  <a class="nav-link" href="upload_compare.html">
                     <span data-feather="file"></span>
                     Upload
                   </a>
@@ -65,12 +65,18 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">How healthy is your country?</h1>
+            <h1 class="h2">How do you compare?</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <!-- <div class="btn-group mr-2">
-                <button class="btn btn-sm btn-outline-secondary">Share</button>
-                <button class="btn btn-sm btn-outline-secondary">Export</button>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary" type="button">Enter your blood glucose level (mmol/L)</button>
+                        </div>
+                        <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                    </div>
               </div> -->
+              <input type="number" name="userGlucose" placeholder="Please enter your blood glucose level (mmol/L)" id="userGlucose" />
+              <input type="submit" id="update" value="Update" />
               <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
                 <span data-feather="calendar"></span>
                 2014
@@ -116,23 +122,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
     <script> 
       Promise.all([
-        d3.csv('csv/population_mortality_data/2010.csv'),
+        //d3.csv('csv/population_mortality_data/2010.csv'),
         d3.csv('csv/population_blood_glucose_levels/2010.csv'),
       ]).then(function(data) {
         var ctx = document.getElementById("myChart")
         var countryObj = (data[0]).map(function(d) {return d.Country})
         const countryLabels = Object.keys(countryObj).map(i => countryObj[i])
-        var deaths = (data[0]).map(function(e) {return e.Deathsper100k})
-        var glucoseLevels = (data[1]).map(function(f) {return f.Both})
-        let coords = glucoseLevels.map((v, i) => ({x: v, y: deaths[i]}))
+        //var deaths = (data[0]).map(function(e) {return e.Deathsper100k})
+        var glucoseLevels = (data[0]).map(function(f) {return f.Both})
+        //let coords = glucoseLevels.map((v, i) => ({x: v, y: deaths[i]}))
         
-        var myChart = new Chart(ctx, {
-          type: "scatter",
+        window.myChart = new Chart(ctx, {
+          type: 'bar',
           data: {
             labels: countryLabels,
             datasets: [{
-              label: 'country',
-              data: coords
+              label: 'glucose levels',
+              data: glucoseLevels
             }]
           },
           options: {
@@ -145,18 +151,18 @@
               }
             },
             scales: {
-              xAxes: [{
-                scaleLabel: {
-                  display: true,
-                  labelString: "Raised fasting blood glucose (≥ 7.0 mmol/L or on medication)(age-standardized)"
-                },
-                type: 'linear',
-                position: 'bottom'
-              }],
+            //   xAxes: [{
+            //     scaleLabel: {
+            //       display: true,
+            //       labelString: "Raised fasting blood glucose (≥ 7.0 mmol/L or on medication)(age-standardized)"
+            //     },
+            //     type: 'linear',
+            //     position: 'bottom'
+            //   }],
               yAxes: [{
                 scaleLabel: {
                   display: true,
-                  labelString: "Deaths per 100k"
+                  labelString: "Raised fasting blood glucose (≥ 7.0 mmol/L or on medication)(age-standardized)"
                 },
                 type: 'linear',
                 position: 'bottom'
@@ -164,9 +170,22 @@
             }
           }
         })
+        //window.alert(window.myChart.data.datasets[0].data)
       }).catch(function(err) {
         window.alert(err.message)
       });
+    </script>
+    <script>
+        $('#update').click(function() {
+            var userGlucose = parseFloat($('#userGlucose').val());
+            try {
+              window.myChart.data.datasets[0].data.push({userGlucose});
+              window.alert("working")
+              window.myChart.update();
+            } catch(err) {
+              window.alert(err.message)
+            }
+        });
     </script>
   </body>
 </html>
