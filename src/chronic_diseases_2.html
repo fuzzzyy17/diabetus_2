@@ -121,8 +121,8 @@
           
           <div id="chronic" class="col-md">
               <br/><br/><br/><br/>
-              <input type="radio" name="axis" id="bloodPressure" onclick="updateChart(this)" checked="true">Blood Pressure<br>
-              <input type="radio" name="axis" id="alcohol" onclick="window.location='/src/chronic_diseases_2.html'">Alcohol Consumption<br>
+              <input type="radio" name="axis" id="bloodPressure" onclick="window.location='/src/chronic_diseases.html'">Blood Pressure<br>
+              <input type="radio" name="axis" id="alcohol" onclick="updateChart(this)" checked="true">Alcohol Consumption<br>
               <input type="radio" name="axis" id="tobacco" onclick="updateChart(this)">Tobacco<br>
               <br/><br/>
               <button>Upload More</button>
@@ -181,9 +181,9 @@
               yAxisID: 'B',
               data: [5.5,5.6,5.6,5.6,5.6,5.7,5.7,5.7,5.7,5.7,5.8],  //uk
             }, {
-              label: 'Blood Pressure',
+              label: 'Alcohol Consumption',
               yAxisID: 'A',
-              data: [21.3, 20.7, 20.1, 19.5, 19.0, 18.4, 17.8, 17.3, 16.7, 16.2, 15.7],
+              data: [11.5, 11.37, 10.96, 11.14, 10.78, 10.14, 10.22, 10.02, 9.76, 9.65, 9.69],
               type: "line",
               borderColor: '#007bff',
               fill: 'false'
@@ -202,20 +202,20 @@
               type: 'linear',
               position: 'left',
               ticks: {
-                max: 6.1,
-                min: 5.4
+                max: 5.9,
+                min: 5.3
               }
             }, {
               id: 'A',
               scaleLabel: {
                 display: true,
-                labelString: "Raised blood pressure (SBP ≥ 140 OR DBP ≥ 90), age-standardized (%) Estimates by country"
+                labelString: "Alcohol recorded per capita (15+) consumption (in litres of pure alcohol)"
               },
               type: 'linear',
               position: 'right',
               ticks: {
-                max: 22,
-                min: 15
+                max: 12,
+                min: 9
               }
             }]
           }
